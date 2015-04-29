@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController {
     NSTimer *timer;
+    NSThread *thread;
 }
 
 - (IBAction)slowerPressed:(UIButton *)sender;
