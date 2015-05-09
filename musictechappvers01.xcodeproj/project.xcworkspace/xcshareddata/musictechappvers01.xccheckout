@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6174A9F5-877E-4247-885D-BFA50AD64171</string>
+	<key>IDESourceControlProjectName</key>
+	<string>musictechappvers01</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FFBC0658B75BB9F720D79DCCE898CFE4AF003D21</key>
+		<string>https://github.com/jwatson2/musictechappvers02.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>musictechappvers01.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FFBC0658B75BB9F720D79DCCE898CFE4AF003D21</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jwatson2/musictechappvers02.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FFBC0658B75BB9F720D79DCCE898CFE4AF003D21</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FFBC0658B75BB9F720D79DCCE898CFE4AF003D21</string>
+			<key>IDESourceControlWCCName</key>
+			<string>musictechappvers01</string>
+		</dict>
+	</array>
+</dict>
+</plist>
