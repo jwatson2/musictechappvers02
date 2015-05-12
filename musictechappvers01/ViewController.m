@@ -167,5 +167,9 @@
     [self sendOSC:@"faster" :@"Faster has been pressed" :12 :@"/faster\0,\0\0\0"];
 }
 
+- (IBAction)xyToPlaySounds:(UIPanGestureRecognizer *)recognizer {
+    
+}
+
 
 @end

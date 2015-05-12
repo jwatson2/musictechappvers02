@@ -113,6 +113,22 @@
                                     <action selector="playSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B0f-as-SMH"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGG-f8-wL0">
+                                <rect key="frame" x="244" y="525" width="113" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="iub-Wk-oH9"/>
+                                </constraints>
+                                <state key="normal" title="X/Y Controller">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kJj-NH-6pL" kind="popoverPresentation" popoverAnchorView="eGG-f8-wL0" id="ON2-zz-AOt">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -125,6 +141,7 @@
                             <constraint firstItem="uTu-Oe-Q5p" firstAttribute="top" secondItem="yea-MK-dgp" secondAttribute="top" id="Ipx-5M-tKD"/>
                             <constraint firstItem="uTu-Oe-Q5p" firstAttribute="top" secondItem="3aG-pB-gTj" secondAttribute="bottom" constant="8" id="JnI-lY-dMC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ngW-gC-Lwf" secondAttribute="bottom" constant="289" id="Kax-yV-oYT"/>
+                            <constraint firstItem="eGG-f8-wL0" firstAttribute="top" secondItem="eEl-cs-oPp" secondAttribute="bottom" constant="18" id="Ukv-uH-OnW"/>
                             <constraint firstItem="Yul-Uh-xI9" firstAttribute="top" secondItem="yea-MK-dgp" secondAttribute="bottom" constant="8" symbolic="YES" id="V5T-rj-ifK"/>
                             <constraint firstItem="uTu-Oe-Q5p" firstAttribute="top" secondItem="3aG-pB-gTj" secondAttribute="bottom" constant="8" id="Xgs-EP-7PD"/>
                             <constraint firstItem="ngW-gC-Lwf" firstAttribute="top" secondItem="uTu-Oe-Q5p" secondAttribute="bottom" constant="8" id="bTC-qy-enn"/>
@@ -135,6 +152,7 @@
                             <constraint firstItem="yea-MK-dgp" firstAttribute="trailing" secondItem="kWu-I0-4gC" secondAttribute="trailing" id="e9C-eX-GQj"/>
                             <constraint firstItem="3aG-pB-gTj" firstAttribute="top" secondItem="kWu-I0-4gC" secondAttribute="top" id="fFZ-TB-GdU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eEl-cs-oPp" secondAttribute="bottom" constant="93" id="hLH-7m-NuX"/>
+                            <constraint firstItem="eGG-f8-wL0" firstAttribute="centerX" secondItem="eEl-cs-oPp" secondAttribute="centerX" id="iEE-RR-kLd"/>
                             <constraint firstItem="ngW-gC-Lwf" firstAttribute="top" secondItem="uTu-Oe-Q5p" secondAttribute="bottom" constant="8" id="k49-nP-Dew"/>
                             <constraint firstItem="ngW-gC-Lwf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lIc-em-YOg"/>
                             <constraint firstItem="uTu-Oe-Q5p" firstAttribute="baseline" secondItem="yea-MK-dgp" secondAttribute="baseline" id="p5K-4U-FBo"/>
@@ -157,6 +175,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-221" y="-193"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wqe-g4-C5J">
+            <objects>
+                <viewController id="kJj-NH-6pL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4IX-ge-Txa"/>
+                        <viewControllerLayoutGuide type="bottom" id="ikP-4d-2RD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lcg-Fc-12r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1C-ic-hl9">
+                                <rect key="frame" x="0.0" y="-33" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fVl-aM-e5z" appends="YES" id="0tK-rj-fdx"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4563636848118674" green="1" blue="0.87163920282969232" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.4563636848118674" green="1" blue="0.87163920282969232" alpha="0.62" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYs-fU-wV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="fVl-aM-e5z"/>
+            </objects>
+            <point key="canvasLocation" x="453" y="-193"/>
         </scene>
     </scenes>
 </document>

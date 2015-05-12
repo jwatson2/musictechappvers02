@@ -22,7 +22,7 @@
 - (IBAction)slowerPressed:(UIButton *)sender;
 - (IBAction)fasterPressed:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
-
+- (IBAction)xyToPlaySounds: (UIPanGestureRecognizer *)recognizer;
 
 @end
 
