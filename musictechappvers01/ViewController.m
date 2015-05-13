@@ -75,7 +75,7 @@
             {
                 /* this case is for OSC type tag string */
                 /* this example code assumes only one argument so we won't do anything here */
-                
+
                 osc_msg_element_id = 2; /* for the next OSC message component: i.e., arguments */
                 break;
             }
@@ -87,15 +87,19 @@
                     case 1:
                     {
                         /* do something here if the OSC address ID is 1 */
+
                         NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
                         [self changeMessageLabel: @"Going Slower"];
+
                         break;
                     }
                     case 2:
                     {
                         /* do something here if the OSC address ID is 2 */
+
                         NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
                         [self changeMessageLabel: @"Going Faster"];
+
                         break;
                     }
                     case 3:
@@ -105,11 +109,11 @@
                         [self changeMessageLabel: @"Play A Sound"];
                         break;
                     }
-                        /* etc. */
+                    /* etc. */
+
                     default:
                         break;
                 }
-                break;
             }
             default:
                 break;
