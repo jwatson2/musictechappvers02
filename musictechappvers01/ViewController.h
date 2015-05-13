@@ -12,7 +12,7 @@
     NSTimer *timer;
     NSThread *thread;
 }
-
+- (void)changeMessageLabel: (NSString *)message;
 - (void)sendOSC: (NSString *)logMessage :(NSString *)labelMessage :(int)lengthOutBuffer :(NSString *)oscMessage;
 - (IBAction)playSound:(UIButton *)sender;
 - (IBAction)sparsePressed:(UIButton *)sender;
@@ -22,7 +22,7 @@
 - (IBAction)slowerPressed:(UIButton *)sender;
 - (IBAction)fasterPressed:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
-- (IBAction)xyToPlaySounds: (UIPanGestureRecognizer *)recognizer;
+
 
 @end
 

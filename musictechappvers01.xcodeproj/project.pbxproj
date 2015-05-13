@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC306FEC1B0323660051C1F9 /* XYView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC306FEB1B0323660051C1F9 /* XYView.m */; };
 		CC72D5DE1AD1CEFC00210139 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D5DD1AD1CEFC00210139 /* main.m */; };
 		CC72D5E11AD1CEFC00210139 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D5E01AD1CEFC00210139 /* AppDelegate.m */; };
 		CC72D5E41AD1CEFC00210139 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC72D5E31AD1CEFC00210139 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC306FEA1B0323660051C1F9 /* XYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYView.h; sourceTree = "<group>"; };
+		CC306FEB1B0323660051C1F9 /* XYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYView.m; sourceTree = "<group>"; };
 		CC72D5D81AD1CEFC00210139 /* musictechappvers01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musictechappvers01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC72D5DC1AD1CEFC00210139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC72D5DD1AD1CEFC00210139 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				CC72D5E21AD1CEFC00210139 /* ViewController.h */,
 				CC72D5E31AD1CEFC00210139 /* ViewController.m */,
 				CC72D5E51AD1CEFC00210139 /* Main.storyboard */,
+				CC306FEA1B0323660051C1F9 /* XYView.h */,
+				CC306FEB1B0323660051C1F9 /* XYView.m */,
 				CC72D5E81AD1CEFC00210139 /* Images.xcassets */,
 				CC72D5EA1AD1CEFC00210139 /* LaunchScreen.xib */,
 				CC72D5DB1AD1CEFC00210139 /* Supporting Files */,
@@ -222,6 +227,7 @@
 				CC72D5E41AD1CEFC00210139 /* ViewController.m in Sources */,
 				CC72D5E11AD1CEFC00210139 /* AppDelegate.m in Sources */,
 				CC72D5DE1AD1CEFC00210139 /* main.m in Sources */,
+				CC306FEC1B0323660051C1F9 /* XYView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

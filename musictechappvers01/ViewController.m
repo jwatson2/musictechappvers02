@@ -47,6 +47,79 @@
     const char *cString = [objCString cStringUsingEncoding:NSASCIIStringEncoding];
 }
 
+- (void)udpParse: (const char*) udpInBuffer :(ssize_t) udpInBufferSize
+{
+    ssize_t pos = 0;
+    int osc_msg_element_id = 0;
+    int osc_add_id = 0;
+    
+    while (pos < udpInBufferSize)
+    {
+        switch (osc_msg_element_id)
+        {
+            case 0:
+            {
+                /* this case is for OSC address string */
+                
+                /* the following example code should work, but I haven't tested it */
+                /* there is a better solution, but for now let's use this */
+                if (strcmp(udpInBuffer,"/message_1")==0) osc_add_id = 1;
+                else if (strcmp(udpInBuffer,"/message_2")==0) osc_add_id = 2;
+                else if (strcmp(udpInBuffer,"/message_3")==0) osc_add_id = 3;
+                /* etc. */
+                
+                osc_msg_element_id = 1; /* for the next OSC message component: i.e., type tag string */
+                break;
+            }
+            case 1:
+            {
+                /* this case is for OSC type tag string */
+                /* this example code assumes only one argument so we won't do anything here */
+                
+                osc_msg_element_id = 2; /* for the next OSC message component: i.e., arguments */
+                break;
+            }
+            case 2:
+            {
+                /* this case is for OSC arguments; for now it only supports one argument */
+                switch (osc_add_id)
+                {
+                    case 1:
+                    {
+                        /* do something here if the OSC address ID is 1 */
+                        NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
+                        [self changeMessageLabel: @"Going Slower"];
+                        break;
+                    }
+                    case 2:
+                    {
+                        /* do something here if the OSC address ID is 2 */
+                        NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
+                        [self changeMessageLabel: @"Going Faster"];
+                        break;
+                    }
+                    case 3:
+                    {
+                        /* do something here if the OSC address ID is 3 */
+                        NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
+                        [self changeMessageLabel: @"Play A Sound"];
+                        break;
+                    }
+                        /* etc. */
+                    default:
+                        break;
+                }
+                break;
+            }
+            default:
+                break;
+        }
+        
+        pos += ((strlen(udpInBuffer+pos) / 4) + 1) * 4;
+    }
+}
+
+
 -(void)receiveUDP {
     NSLog(@"receiveUDP started");
     
@@ -75,11 +148,12 @@
         if (InBufferLength < 0)
             fprintf(stderr,"%s\n",strerror(errno));
         
-        /* do something with the incoming message here */
+        /* do something with the incoming message here, i.e. call udpParse */
         InBuffer[InBufferLength] = '\0';
-        NSLog(@"%s %ld",InBuffer,InBufferLength);
+        //NSLog(@"%s %ld",InBuffer,InBufferLength);
+        [self udpParse:InBuffer :InBufferLength];
         /*NSLog(@"%@", [NSString stringWithCString:InBuffer encoding:NSASCIIStringEncoding]);*/
-        self.messageLabel.text = (@"testing");
+        //self.messageLabel.text = (@"testing");
         /*
          NSLog(@"%@", receiveOSC);
          self.messageLabel.text = receiveOSC;*/
@@ -91,13 +165,17 @@
     close(sock);
 }
 
+-(void)changeMessageLabel: (NSString *)message {
+    self.messageLabel.text = message;
+}
+
 -(void)sendOSC: (NSString *)logMessage :(NSString *)labelMessage :(int)lengthOutBuffer :(NSString *)oscMessage  {
     
     // When faster button is pressed, the message faster is sent to the debug window
     NSLog(@"%@", logMessage);
     
     //Change text of label
-    self.messageLabel.text = labelMessage;
+    [self changeMessageLabel: labelMessage];
     
     /* open the socket */
     int sock;
@@ -167,9 +245,6 @@
     [self sendOSC:@"faster" :@"Faster has been pressed" :12 :@"/faster\0,\0\0\0"];
 }
 
-- (IBAction)xyToPlaySounds:(UIPanGestureRecognizer *)recognizer {
-    
-}
 
 
 @end
