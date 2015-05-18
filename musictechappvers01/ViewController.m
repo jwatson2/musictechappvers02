@@ -156,11 +156,7 @@
         InBuffer[InBufferLength] = '\0';
         //NSLog(@"%s %ld",InBuffer,InBufferLength);
         [self udpParse:InBuffer :InBufferLength];
-        /*NSLog(@"%@", [NSString stringWithCString:InBuffer encoding:NSASCIIStringEncoding]);*/
         //self.messageLabel.text = (@"testing");
-        /*
-         NSLog(@"%@", receiveOSC);
-         self.messageLabel.text = receiveOSC;*/
         
         /* need a way to exit this infinite loop */
     }

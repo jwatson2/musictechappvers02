@@ -10,5 +10,10 @@
 
 @interface XYView : UIView
 
+
+- (void)sendOSC: (NSString *)logMessage :(NSString *)labelMessage :(int)lengthOutBuffer :(NSString *)oscMessage;
+-(void)doTouches: (NSSet *)touches withEvent: (UIEvent *)event;
+
+
 @end
 
