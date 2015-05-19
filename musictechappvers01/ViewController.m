@@ -245,6 +245,24 @@
     [self sendOSC:@"faster" :@"Faster has been pressed" :12 :@"/faster\0,\0\0\0"];
 }
 
+#pragma mark- OSC argument methods
 
+union {
+    float	flt_val;
+    int		int_val;
+} u;
+
+
+-(void)appendToOSGMsg_FloatValue:(const char*)osc_str :(int)osc_str_length :(float)val
+{
+    // copy the 4-byte value into the union structure
+    memcpy(&u.int_val,&val,4);
+    
+    // convert it to the proper Endian format
+    u.int_val = htonl(u.int_val);
+
+    // append the 4-byte union value to the end of the OSC message
+    memcpy(osc_str+osc_str_length,&u.int_val,4);
+}
 
 @end
