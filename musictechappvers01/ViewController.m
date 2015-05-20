@@ -32,6 +32,7 @@
     
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveUDP) object:nil];
     [thread start]; /* need to call [thread release]; at some point? */
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,8 +89,9 @@
                     {
                         /* do something here if the OSC address ID is 1 */
 
-                        NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
-                        [self changeMessageLabel: @"Going Slower"];
+                        NSString *fromMaxOne = [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding];
+                        NSLog(@"%@", fromMaxOne);
+                        [self performSelectorOnMainThread:@selector(changeMessageLabel:) withObject:fromMaxOne waitUntilDone:NO];
 
                         break;
                     }
@@ -97,16 +99,20 @@
                     {
                         /* do something here if the OSC address ID is 2 */
 
-                        NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
-                        [self changeMessageLabel: @"Going Faster"];
+                        NSString *fromMaxTwo = [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding];
+                        NSLog(@"%@", fromMaxTwo);
+                        [self performSelectorOnMainThread:@selector(changeMessageLabel:) withObject:fromMaxTwo waitUntilDone:NO];
 
                         break;
                     }
                     case 3:
                     {
                         /* do something here if the OSC address ID is 3 */
-                        NSLog(@"%@", [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding]);
-                        [self changeMessageLabel: @"Play A Sound"];
+                        
+                        NSString *fromMaxThree = [NSString stringWithCString:udpInBuffer+pos encoding:NSASCIIStringEncoding];
+                        NSLog(@"%@", fromMaxThree);
+                        [self performSelectorOnMainThread:@selector(changeMessageLabel:) withObject:fromMaxThree waitUntilDone:NO];
+                        
                         break;
                     }
                     /* etc. */
@@ -156,7 +162,6 @@
         InBuffer[InBufferLength] = '\0';
         //NSLog(@"%s %ld",InBuffer,InBufferLength);
         [self udpParse:InBuffer :InBufferLength];
-        //self.messageLabel.text = (@"testing");
         
         /* need a way to exit this infinite loop */
     }
@@ -236,7 +241,11 @@
 
 - (IBAction)slowerPressed:(UIButton *)sender {
     
-    [self sendOSC:@"slower" :@"Slower has been pressed" :12 :@"/slower\0,\0\0\0"];
+    char buf[32]; memcpy(buf,"/slower\0,f\0\0",12);
+    
+    [self appendToOSCMsg_FloatValue:buf :12 :0.55];
+
+    [self sendOSC:@"slower" :@"Slower has been pressed" :12 :[NSString stringWithCString:buf encoding:NSASCIIStringEncoding]];
 }
 
 
@@ -246,6 +255,31 @@
 }
 
 #pragma mark- OSC argument methods
+<<<<<<< Updated upstream
+=======
+
+union {
+    float	flt_val;
+    int		int_val;
+} u;
+
+
+-(void)appendToOSCMsg_FloatValue:(const char*)osc_str :(int)osc_str_length :(float)val
+{
+    // copy the 4-byte value into the union structure
+    memcpy(&u.int_val,&val,4);
+    
+    // convert it to the proper Endian format
+    u.int_val = htonl(u.int_val);
+    
+    // append the 4-byte union value to the end of the OSC message
+    memcpy(osc_str+osc_str_length,&u.int_val,4);
+    
+}
+
+
+
+>>>>>>> Stashed changes
 
 union {
     float	flt_val;
