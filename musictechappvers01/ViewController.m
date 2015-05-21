@@ -174,7 +174,7 @@
     self.messageLabel.text = message;
 }
 
--(void)sendOSC: (NSString *)logMessage :(NSString *)labelMessage :(int)lengthOutBuffer :(NSString *)oscMessage  {
+-(void)sendOSC: (NSString *)logMessage :(NSString *)labelMessage :(int)lengthOutBuffer :(const char *)oscMessage  {
     
     // When faster button is pressed, the message faster is sent to the debug window
     NSLog(@"%@", logMessage);
@@ -202,7 +202,7 @@
     char OutBuffer[1024];
     ssize_t OutBufferLength;
     OutBufferLength = lengthOutBuffer;
-    memcpy(OutBuffer,[oscMessage cStringUsingEncoding:NSASCIIStringEncoding],OutBufferLength);
+    memcpy(OutBuffer,oscMessage,OutBufferLength);
     
     /* send the message */
     ssize_t bytes_sent;
@@ -216,47 +216,45 @@
 
 - (IBAction)playSound:(UIButton *)sender {
     
-    [self sendOSC:@"trigger sound" :@" " :12 :@"/play\0\0\0,\0\0\0"];
+    [self sendOSC:@"trigger sound" :@" " :12 :"/play\0\0\0,\0\0\0"];
 }
 
 - (IBAction)sparsePressed:(UIButton *)sender {
     
-    [self sendOSC:@"sparse" :@"Sparse has been pressed" :12 :@"/sparse\0,\0\0\0"];
+    [self sendOSC:@"sparse" :@"Sparse has been pressed" :12 :"/sparse\0,\0\0\0"];
 }
 
 - (IBAction)densePressed:(UIButton *)sender {
     
-    [self sendOSC:@"dense" :@"Dense has been pressed" :12 :@"/dense\0\0,\0\0\0"];
+    [self sendOSC:@"dense" :@"Dense has been pressed" :12 :"/dense\0\0,\0\0\0"];
 }
 
 - (IBAction)quieterPressed:(UIButton *)sender {
     
-    [self sendOSC:@"quieter" :@"Quieter has been pressed" :16 :@"/quieter\0\0\0\0,\0\0\0"];
+    [self sendOSC:@"quieter" :@"Quieter has been pressed" :16 :"/quieter\0\0\0\0,\0\0\0"];
 }
 
 - (IBAction)louderPressed:(UIButton *)sender {
     
-    [self sendOSC:@"louder" :@"Louder has been pressed" :12 :@"/louder\0,\0\0\0"];
+    [self sendOSC:@"louder" :@"Louder has been pressed" :12 :"/louder\0,\0\0\0"];
 }
 
 - (IBAction)slowerPressed:(UIButton *)sender {
     
-    char buf[32]; memcpy(buf,"/slower\0,f\0\0",12);
-    
+    char buf[32];
+    memcpy(buf,"/slower\0,f\0\0",12);
     [self appendToOSCMsg_FloatValue:buf :12 :0.55];
 
-    [self sendOSC:@"slower" :@"Slower has been pressed" :12 :[NSString stringWithCString:buf encoding:NSASCIIStringEncoding]];
+    [self sendOSC:@"slower" :@"Slower has been pressed" :16 :buf];
 }
 
 
 - (IBAction)fasterPressed:(UIButton *)sender {
     
-    [self sendOSC:@"faster" :@"Faster has been pressed" :12 :@"/faster\0,\0\0\0"];
+    [self sendOSC:@"faster" :@"Faster has been pressed" :12 :"/faster\0,\0\0\0"];
 }
 
 #pragma mark- OSC argument methods
-<<<<<<< Updated upstream
-=======
 
 union {
     float	flt_val;
@@ -275,28 +273,6 @@ union {
     // append the 4-byte union value to the end of the OSC message
     memcpy(osc_str+osc_str_length,&u.int_val,4);
     
-}
-
-
-
->>>>>>> Stashed changes
-
-union {
-    float	flt_val;
-    int		int_val;
-} u;
-
-
--(void)appendToOSGMsg_FloatValue:(const char*)osc_str :(int)osc_str_length :(float)val
-{
-    // copy the 4-byte value into the union structure
-    memcpy(&u.int_val,&val,4);
-    
-    // convert it to the proper Endian format
-    u.int_val = htonl(u.int_val);
-
-    // append the 4-byte union value to the end of the OSC message
-    memcpy(osc_str+osc_str_length,&u.int_val,4);
 }
 
 @end

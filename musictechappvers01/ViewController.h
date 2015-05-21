@@ -13,7 +13,7 @@
     NSThread *thread;
 }
 - (void)changeMessageLabel: (NSString *)message;
-- (void)sendOSC: (NSString *)logMessage :(NSString *)labelMessage :(int)lengthOutBuffer :(NSString *)oscMessage;
+- (void)sendOSC: (NSString *)logMessage :(NSString *)labelMessage :(int)lengthOutBuffer :(const char *)oscMessage;
 - (IBAction)playSound:(UIButton *)sender;
 - (IBAction)sparsePressed:(UIButton *)sender;
 - (IBAction)densePressed:(UIButton *)sender;
