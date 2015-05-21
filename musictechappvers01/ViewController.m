@@ -242,8 +242,9 @@
 - (IBAction)slowerPressed:(UIButton *)sender {
     
     char buf[32];
+    float val = 0.55;
     memcpy(buf,"/slower\0,f\0\0",12);
-    [self appendToOSCMsg_FloatValue:buf :12 :0.55];
+    [self appendToOSCMsg_Value:buf :12 :&val];
 
     [self sendOSC:@"slower" :@"Slower has been pressed" :16 :buf];
 }
@@ -256,23 +257,19 @@
 
 #pragma mark- OSC argument methods
 
-union {
-    float	flt_val;
-    int		int_val;
-} u;
-
-
--(void)appendToOSCMsg_FloatValue:(const char*)osc_str :(int)osc_str_length :(float)val
+// the following will now work for both int and float
+-(void)appendToOSCMsg_Value:(void*)osc_str :(int)osc_str_length :(void*)val
 {
+    long temp;
+    
     // copy the 4-byte value into the union structure
-    memcpy(&u.int_val,&val,4);
+    memcpy(&temp,val,4);
     
     // convert it to the proper Endian format
-    u.int_val = htonl(u.int_val);
+    temp = htonl(temp);
     
     // append the 4-byte union value to the end of the OSC message
-    memcpy(osc_str+osc_str_length,&u.int_val,4);
-    
+    memcpy(osc_str+osc_str_length,&temp,4);
 }
 
 @end
