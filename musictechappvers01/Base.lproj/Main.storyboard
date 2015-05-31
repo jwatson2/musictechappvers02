@@ -127,6 +127,11 @@
                                     <segue destination="kJj-NH-6pL" kind="modal" id="37U-Hx-MDj"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Destination IP Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="czJ-Se-HLi">
+                                <rect key="frame" x="194" y="390" width="212" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -141,16 +146,19 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ngW-gC-Lwf" secondAttribute="bottom" constant="289" id="Kax-yV-oYT"/>
                             <constraint firstItem="eGG-f8-wL0" firstAttribute="top" secondItem="eEl-cs-oPp" secondAttribute="bottom" constant="18" id="Ukv-uH-OnW"/>
                             <constraint firstItem="Yul-Uh-xI9" firstAttribute="top" secondItem="yea-MK-dgp" secondAttribute="bottom" constant="8" symbolic="YES" id="V5T-rj-ifK"/>
+                            <constraint firstItem="czJ-Se-HLi" firstAttribute="trailing" secondItem="eEl-cs-oPp" secondAttribute="trailing" id="Vby-KV-rig"/>
                             <constraint firstItem="uTu-Oe-Q5p" firstAttribute="top" secondItem="3aG-pB-gTj" secondAttribute="bottom" constant="8" id="Xgs-EP-7PD"/>
                             <constraint firstItem="ngW-gC-Lwf" firstAttribute="top" secondItem="uTu-Oe-Q5p" secondAttribute="bottom" constant="8" id="bTC-qy-enn"/>
                             <constraint firstItem="yea-MK-dgp" firstAttribute="leading" secondItem="Yul-Uh-xI9" secondAttribute="leading" id="bcx-9q-JT4"/>
                             <constraint firstItem="kWu-I0-4gC" firstAttribute="leading" secondItem="Zty-dE-HNA" secondAttribute="leading" id="c9R-3z-H9a"/>
+                            <constraint firstItem="eEl-cs-oPp" firstAttribute="top" secondItem="czJ-Se-HLi" secondAttribute="bottom" constant="16" id="cU9-9d-hrc"/>
                             <constraint firstItem="kWu-I0-4gC" firstAttribute="baseline" secondItem="3aG-pB-gTj" secondAttribute="baseline" id="cru-4i-usa"/>
                             <constraint firstItem="Yul-Uh-xI9" firstAttribute="trailing" secondItem="yea-MK-dgp" secondAttribute="trailing" id="dkF-vZ-UNF"/>
                             <constraint firstItem="yea-MK-dgp" firstAttribute="trailing" secondItem="kWu-I0-4gC" secondAttribute="trailing" id="e9C-eX-GQj"/>
                             <constraint firstItem="3aG-pB-gTj" firstAttribute="top" secondItem="kWu-I0-4gC" secondAttribute="top" id="fFZ-TB-GdU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eEl-cs-oPp" secondAttribute="bottom" constant="93" id="hLH-7m-NuX"/>
                             <constraint firstItem="eGG-f8-wL0" firstAttribute="centerX" secondItem="eEl-cs-oPp" secondAttribute="centerX" id="iEE-RR-kLd"/>
+                            <constraint firstItem="czJ-Se-HLi" firstAttribute="leading" secondItem="eEl-cs-oPp" secondAttribute="leading" id="iWP-5O-H5J"/>
                             <constraint firstItem="ngW-gC-Lwf" firstAttribute="top" secondItem="uTu-Oe-Q5p" secondAttribute="bottom" constant="8" id="k49-nP-Dew"/>
                             <constraint firstItem="ngW-gC-Lwf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lIc-em-YOg"/>
                             <constraint firstItem="uTu-Oe-Q5p" firstAttribute="baseline" secondItem="yea-MK-dgp" secondAttribute="baseline" id="p5K-4U-FBo"/>
