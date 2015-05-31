@@ -245,7 +245,6 @@
     float val = 0.55;
     memcpy(buf,"/slower\0,f\0\0",12);
     [self appendToOSCMsg_Value:buf :12 :&val];
-    
     [self sendOSC:@"slower" :@"Slower has been pressed" :16 :buf];
 }
 
