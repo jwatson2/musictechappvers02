@@ -23,6 +23,10 @@
 
 @end
 
+// by declaring gVC as a global variable that has been defined in some other file (extern)
+// you can now call gVC's public methods from within this file
+extern ViewController* gVC;
+
 @implementation XYView
 
 

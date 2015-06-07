@@ -72,13 +72,19 @@ unsigned int ip_to_int (const char * ip)
     }
     return v;
 }
+
 /*********************/
+
+ViewController* gVC = nil;
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
+
     // Do any additional setup after loading the view, typically from a nib.
+    gVC = self;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkMessages:) userInfo:nil repeats:YES];
     
