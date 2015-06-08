@@ -21,17 +21,17 @@
 
 @interface XYView ()
 
-@end
-
 /* by declaring gVC as a global variable that has been defined in some other file (extern)
 you can now call gVC's public methods from within this file */
 extern ViewController* gVC;
+
+@end
 
 @implementation XYView
 
 
 
--(void)sendOSCFloats: (int)lengthOutBuffer :(const char *)oscMessage
+-(void)sendOSCFloats: (int)lengthOutBuffer :(const char *)oscMessage;
 {
     /* open the socket */
     int sock;
