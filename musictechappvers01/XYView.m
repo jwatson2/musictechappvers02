@@ -23,16 +23,12 @@
 
 @end
 
+/* by declaring gVC as a global variable that has been defined in some other file (extern)
+you can now call gVC's public methods from within this file */
+extern ViewController* gVC;
+
 @implementation XYView
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 
 -(void)sendOSCFloats: (int)lengthOutBuffer :(const char *)oscMessage
@@ -98,7 +94,7 @@
         Float64 yInv = (1. - y);
         NSLog(@"%lf,%lf", x, yInv);
         
-       
+        
         char bufX[32];
         float valX = x;
         memcpy(bufX,"/soundx\0,f\0\0",12);
@@ -127,7 +123,8 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self doTouches:touches withEvent:event];
+    //[self doTouches:touches withEvent:event];
+    [gVC sendOSC:@"sound stop" :@" " :16 :"/soundstop\0\0,\0\0\0"];
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event

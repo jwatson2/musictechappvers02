@@ -22,17 +22,74 @@
 
 @end
 
+/* '0.0.0.0' is not a valid IP address, so this uses the value 0 to
+ indicate an invalid IP address. */
+
+/*** KU added this from http://www.lemoda.net/c/ip-to-integer/ ***/
+#define INVALID 0
+
+/* Convert the character string in "ip" into an unsigned integer.
+ 
+ This assumes that an unsigned integer contains at least 32 bits. */
+
+unsigned int ip_to_int (const char * ip)
+{
+    /* The return value. */
+    unsigned v = 0;
+    /* The count of the number of bytes processed. */
+    int i;
+    /* A pointer to the next digit to process. */
+    const char * start;
+    
+    start = ip;
+    for (i = 0; i < 4; i++) {
+        /* The digit being processed. */
+        char c;
+        /* The value of this byte. */
+        int n = 0;
+        while (1) {
+            c = * start;
+            start++;
+            if (c >= '0' && c <= '9') {
+                n *= 10;
+                n += c - '0';
+            }
+            /* We insist on stopping at "." if we are still parsing
+             the first, second, or third numbers. If we have reached
+             the end of the numbers, we will allow any character. */
+            else if ((i < 3 && c == '.') || i == 3) {
+                break;
+            }
+            else {
+                return INVALID;
+            }
+        }
+        if (n >= 256) {
+            return INVALID;
+        }
+        v *= 256;
+        v += n;
+    }
+    return v;
+}
+
+/*********************/
+
+ViewController* gVC = nil;
+
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
+    gVC = self;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkMessages:) userInfo:nil repeats:YES];
     
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveUDP) object:nil];
     [thread start]; /* need to call [thread release]; at some point? */
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -190,6 +247,11 @@
         fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
         exit(EXIT_FAILURE);
     }
+    
+    /*** KU added this ***/
+    SInt32 ipaddress = ip_to_int("127.0.0.1");
+    NSLog(@"%x",ipaddress);
+    /*********************/
     
     /* set the IP address and port */
     struct sockaddr_in sa;
