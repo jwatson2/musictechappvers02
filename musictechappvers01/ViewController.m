@@ -83,6 +83,8 @@ ViewController* gVC = nil;
 
     [super viewDidLoad];
 
+    IPAddress = 0x00000000;
+    IPAddressTextField.delegate = self;
 
     // Do any additional setup after loading the view, typically from a nib.
     gVC = self;
@@ -102,8 +104,9 @@ ViewController* gVC = nil;
     NSLog(@"Checking for Messages");
 }
 
--(void)convertToCString: (NSString *)objCString {
+-(const char*)convertToCString: (NSString *)objCString {
     const char *cString = [objCString cStringUsingEncoding:NSASCIIStringEncoding];
+    return cString;
 }
 
 - (void)udpParse: (const char*) udpInBuffer :(ssize_t) udpInBufferSize
@@ -249,16 +252,11 @@ ViewController* gVC = nil;
         exit(EXIT_FAILURE);
     }
     
-    /*** KU added this ***/
-    SInt32 ipaddress = ip_to_int("127.0.0.1");
-    NSLog(@"%x",ipaddress);
-    /*********************/
-    
     /* set the IP address and port */
     struct sockaddr_in sa;
     memset(&sa, 0, sizeof(sa));
     sa.sin_family = AF_INET;
-    sa.sin_addr.s_addr = htonl(0x7F000001); /* IP address: 127.0.0.1 */
+    sa.sin_addr.s_addr = htonl(IPAddress);
     sa.sin_port = htons(1337);  /* hard-coded send port number */
     
     /* set the OSC message and message length */
@@ -275,6 +273,41 @@ ViewController* gVC = nil;
     
     /* close the socket */
     close(sock);
+}
+
+-(void)sendOSCFloats: (int)lengthOutBuffer :(const char *)oscMessage;
+{
+    /* open the socket */
+    int sock;
+    sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    if (-1 == sock) /* if socket failed to initialize, exit */
+    {
+        fprintf(stderr,"Error creating socket: %s\n",strerror(errno));
+        exit(EXIT_FAILURE);
+    }
+    
+    /* set the IP address and port */
+    struct sockaddr_in sa;
+    memset(&sa, 0, sizeof(sa));
+    sa.sin_family = AF_INET;
+    sa.sin_addr.s_addr = htonl(IPAddress);
+    sa.sin_port = htons(1337);  /* hard-coded send port number */
+    
+    /* set the OSC message and message length */
+    char OutBuffer[1024];
+    ssize_t OutBufferLength;
+    OutBufferLength = lengthOutBuffer;
+    memcpy(OutBuffer,oscMessage,OutBufferLength);
+    
+    /* send the message */
+    ssize_t bytes_sent;
+    bytes_sent = sendto(sock, OutBuffer, OutBufferLength, 0,(struct sockaddr*)&sa, sizeof (struct sockaddr_in));
+    if (bytes_sent < 0)
+        fprintf(stderr,"Error sending packet: %s\n",strerror(errno));
+    
+    /* close the socket */
+    close(sock);
+    
 }
 
 - (IBAction)playSound:(UIButton *)sender {
@@ -315,6 +348,32 @@ ViewController* gVC = nil;
 - (IBAction)fasterPressed:(UIButton *)sender {
     
     [self sendOSC:@"faster" :@"Faster has been pressed" :12 :"/faster\0,\0\0\0"];
+}
+
+-(IBAction)iPAddressChanged:(id)sender
+{
+    NSLog(IPAddressTextField.text);
+    
+    char ipCStr[128];
+    strcpy(ipCStr,[IPAddressTextField.text cStringUsingEncoding:NSASCIIStringEncoding]);
+    IPAddress = ip_to_int(ipCStr);
+    NSLog(@"%x",IPAddress);
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"textFieldDidBeginEditing");
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"textFieldDidEndEditing");
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
+{
+    [theTextField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark- OSC argument methods

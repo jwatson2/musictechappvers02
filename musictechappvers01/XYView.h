@@ -10,12 +10,9 @@
 
 @interface XYView : UIView
 
-
--(void)sendOSCFloats: (int)lengthOutBuffer :(const char *)oscMessage;
 -(void)appendToOSCMsg_Value:(void*)osc_str :(int)osc_str_length :(void*)val;
+
 -(void)doTouches: (NSSet *)touches withEvent: (UIEvent *)event;
-
-
 
 
 @end
