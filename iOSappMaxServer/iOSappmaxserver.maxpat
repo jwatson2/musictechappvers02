@@ -9,7 +9,11 @@
 			"modernui" : 1
 		}
 ,
+<<<<<<< HEAD
 		"rect" : [ 38.0, 78.0, 548.0, 763.0 ],
+=======
+		"rect" : [ 77.0, 78.0, 548.0, 763.0 ],
+>>>>>>> origin/master
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -38,6 +42,7 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+<<<<<<< HEAD
 					"id" : "obj-75",
 					"linecount" : 2,
 					"maxclass" : "comment",
@@ -54,12 +59,18 @@
 			}
 , 			{
 				"box" : 				{
+=======
+>>>>>>> origin/master
 					"id" : "obj-130",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
+<<<<<<< HEAD
 					"patching_rect" : [ 381.5, 15.0, 150.0, 33.0 ],
+=======
+					"patching_rect" : [ 240.0, 705.0, 150.0, 33.0 ],
+>>>>>>> origin/master
 					"presentation" : 1,
 					"presentation_linecount" : 2,
 					"presentation_rect" : [ 210.0, 675.0, 150.0, 33.0 ],
@@ -186,7 +197,11 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 459.25, 346.0, 281.0, 33.0 ],
 					"presentation" : 1,
+<<<<<<< HEAD
 					"presentation_rect" : [ 202.5, 20.0, 150.0, 33.0 ],
+=======
+					"presentation_rect" : [ 202.5, 34.0, 150.0, 33.0 ],
+>>>>>>> origin/master
 					"style" : "",
 					"text" : "Percentage",
 					"textjustification" : 1
@@ -286,8 +301,11 @@
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 45.0, 675.0, 24.0, 24.0 ],
+<<<<<<< HEAD
 					"presentation" : 1,
 					"presentation_rect" : [ 259.0, 55.0, 24.0, 24.0 ],
+=======
+>>>>>>> origin/master
 					"style" : ""
 				}
 
@@ -1931,8 +1949,12 @@
 					"patching_rect" : [ 360.0, 690.0, 435.0, 62.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 60.0, 150.0, 428.5, 62.0 ],
+<<<<<<< HEAD
 					"style" : "",
 					"text" : "Faster"
+=======
+					"style" : ""
+>>>>>>> origin/master
 				}
 
 			}
@@ -2639,7 +2661,11 @@
 					"range" : 128,
 					"size" : 6,
 					"style" : "",
+<<<<<<< HEAD
 					"table_data" : [ 0, 3, 5, 2, 1, 4, 0 ]
+=======
+					"table_data" : [ 0, 0, 0, 0, 0, 0, 0 ]
+>>>>>>> origin/master
 				}
 
 			}
