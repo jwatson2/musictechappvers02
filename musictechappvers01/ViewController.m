@@ -83,16 +83,19 @@ ViewController* gVC = nil;
 
     [super viewDidLoad];
 
-    IPAddress = 0x00000000;
-    IPAddressTextField.delegate = self;
+    if (![self isViewLoaded])
+    {
+        IPAddress = 0x00000000;
+        IPAddressTextField.delegate = self;
 
-    // Do any additional setup after loading the view, typically from a nib.
-    gVC = self;
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkMessages:) userInfo:nil repeats:YES];
-    
-    thread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveUDP) object:nil];
-    [thread start]; /* need to call [thread release]; at some point? */
+        // Do any additional setup after loading the view, typically from a nib.
+        gVC = self;
+        
+        timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkMessages:) userInfo:nil repeats:YES];
+        
+        thread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveUDP) object:nil];
+        [thread start]; /* need to call [thread release]; at some point? */
+    }
 }
 
 - (void)didReceiveMemoryWarning {
