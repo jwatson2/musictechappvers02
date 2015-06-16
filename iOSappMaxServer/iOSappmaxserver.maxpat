@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 38.0, 78.0, 548.0, 763.0 ],
+		"rect" : [ 38.0, 78.0, 594.0, 722.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -43,12 +43,12 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 80.0, 670.5, 154.0, 33.0 ],
+					"patching_rect" : [ 81.0, 670.5, 150.0, 33.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 148.0, 50.5, 114.0, 33.0 ],
+					"presentation_rect" : [ 180.0, 670.0, 120.5, 33.0 ],
 					"style" : "",
-					"text" : "Turn on to simulate other App users"
+					"text" : "Turn on to simulate other app users"
 				}
 
 			}
@@ -59,10 +59,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 381.5, 15.0, 150.0, 33.0 ],
+					"patching_rect" : [ 240.0, 705.0, 150.0, 33.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 2,
-					"presentation_rect" : [ 210.0, 675.0, 150.0, 33.0 ],
+					"presentation_rect" : [ 285.0, 670.0, 150.0, 33.0 ],
 					"style" : "",
 					"text" : "Send \"Your Turn to Play!\" message to app user",
 					"textjustification" : 1
@@ -78,7 +78,7 @@
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 374.0, 37.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 243.5, 600.0, 68.0, 68.0 ],
+					"presentation_rect" : [ 315.0, 600.0, 68.0, 68.0 ],
 					"style" : ""
 				}
 
@@ -186,7 +186,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 459.25, 346.0, 281.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 202.5, 20.0, 150.0, 33.0 ],
+					"presentation_rect" : [ 202.5, 34.0, 150.0, 33.0 ],
 					"style" : "",
 					"text" : "Percentage",
 					"textjustification" : 1
@@ -201,7 +201,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 746.5, 600.0, 53.5, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 435.0, 112.0, 53.5, 20.0 ],
+					"presentation_rect" : [ 450.0, 112.0, 53.5, 20.0 ],
 					"style" : "",
 					"text" : "Dense"
 				}
@@ -215,7 +215,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 668.5, 600.0, 53.5, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 358.25, 112.0, 53.5, 20.0 ],
+					"presentation_rect" : [ 373.25, 112.0, 53.5, 20.0 ],
 					"style" : "",
 					"text" : "Sparse"
 				}
@@ -229,7 +229,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 598.5, 600.0, 53.5, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 285.0, 112.0, 53.5, 20.0 ],
+					"presentation_rect" : [ 300.0, 112.0, 53.5, 20.0 ],
 					"style" : "",
 					"text" : "Louder"
 				}
@@ -243,7 +243,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 518.5, 600.0, 53.5, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 210.0, 112.0, 53.5, 20.0 ],
+					"presentation_rect" : [ 225.0, 112.0, 53.5, 20.0 ],
 					"style" : "",
 					"text" : "Quieter"
 				}
@@ -257,7 +257,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 443.5, 600.0, 45.0, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 135.0, 112.0, 45.0, 20.0 ],
+					"presentation_rect" : [ 150.0, 112.0, 45.0, 20.0 ],
 					"style" : "",
 					"text" : "Faster"
 				}
@@ -271,7 +271,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 368.5, 600.0, 45.0, 20.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 60.0, 112.0, 45.0, 20.0 ],
+					"presentation_rect" : [ 75.0, 112.0, 45.0, 20.0 ],
 					"style" : "",
 					"text" : "Slower"
 				}
@@ -287,7 +287,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 45.0, 675.0, 24.0, 24.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 259.0, 55.0, 24.0, 24.0 ],
+					"presentation_rect" : [ 206.0, 600.0, 68.0, 68.0 ],
 					"style" : ""
 				}
 
@@ -1746,7 +1746,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 931.0, 210.0, 173.0, 305.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 191.0, 255.0, 173.0, 305.0 ],
+					"presentation_rect" : [ 206.0, 255.0, 173.0, 305.0 ],
 					"style" : ""
 				}
 
@@ -1930,9 +1930,8 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 360.0, 690.0, 435.0, 62.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 60.0, 150.0, 428.5, 62.0 ],
-					"style" : "",
-					"text" : "Faster"
+					"presentation_rect" : [ 75.0, 150.0, 428.5, 62.0 ],
+					"style" : ""
 				}
 
 			}
@@ -2051,7 +2050,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 735.0, 578.0, 50.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 435.0, 90.0, 50.0, 22.0 ],
+					"presentation_rect" : [ 450.0, 90.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -2119,7 +2118,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 660.0, 578.0, 50.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 360.0, 90.0, 50.0, 22.0 ],
+					"presentation_rect" : [ 375.0, 90.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -2187,7 +2186,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 585.0, 578.0, 50.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 285.0, 90.0, 50.0, 22.0 ],
+					"presentation_rect" : [ 300.0, 90.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -2255,7 +2254,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 510.0, 578.0, 50.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 210.0, 90.0, 50.0, 22.0 ],
+					"presentation_rect" : [ 225.0, 90.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -2323,7 +2322,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 435.0, 578.0, 50.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 135.0, 90.0, 50.0, 22.0 ],
+					"presentation_rect" : [ 150.0, 90.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -2405,7 +2404,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 360.0, 578.0, 50.0, 22.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 60.0, 90.0, 50.0, 22.0 ],
+					"presentation_rect" : [ 75.0, 90.0, 50.0, 22.0 ],
 					"style" : ""
 				}
 
@@ -2639,7 +2638,7 @@
 					"range" : 128,
 					"size" : 6,
 					"style" : "",
-					"table_data" : [ 0, 3, 5, 2, 1, 4, 0 ]
+					"table_data" : [ 0, 0, 0, 0, 0, 0, 0 ]
 				}
 
 			}
@@ -5456,14 +5455,14 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "4wavesynth~.maxpat",
-				"bootpath" : "~/Documents/UCI/03-Spring 2015/215 Music Tech/Max Files",
+				"bootpath" : "~/Documents/UCI/03-Spring 2015/215 Music Tech/Max Files/iOSappMaxServer",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "synthcontrol.js",
-				"bootpath" : "~/Documents/UCI/03-Spring 2015/215 Music Tech/Max Files",
+				"bootpath" : "~/Documents/UCI/03-Spring 2015/215 Music Tech/Max Files/iOSappMaxServer",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
