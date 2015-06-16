@@ -94,6 +94,7 @@ ViewController* gVC = nil;
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(receiveUDP) object:nil];
     [thread start]; /* need to call [thread release]; at some point? */
 /*
+
     if (![self isViewLoaded])
     {
         IPAddress = 0x00000000;
@@ -109,6 +110,7 @@ ViewController* gVC = nil;
  //need to call [thread release]; at some point?
     }
 */
+
 }
 
 - (void)didReceiveMemoryWarning {
